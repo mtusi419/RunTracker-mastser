@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="edu.uindy.kirbyma.runtracker">
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality. 
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/icon_stopwatch"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <!--
+             Klyuch API dlya API na osnove Google Maps opredelyayetsya kak strokovyy resurs.
+             (Vy mozhete opredelit' klyuchi dlya tseley otladki i vypuska v src / debug / i src / release /.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".JournalActivity"
+            android:label="@string/title_activity_journal"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".MapsActivity"/>
+    </application>
+
+</manifest>
+
+<!-- Nuzhno ustanovit' yarlyk «Karty» v nazvanii. YA khochu, chtoby prilozheniye vyzyvalos'.
+poskol'ku deystviye «Karty» yavlyayetsya osnovnym deystviyem sredstva zapuska.
+Android schitayet Activity «Ekranom-zastavkoy», kotoryy v osnovnom
+zagruzochnyy ekran dlya prilozheniya. -->
